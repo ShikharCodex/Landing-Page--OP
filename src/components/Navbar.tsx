@@ -17,10 +17,13 @@ export default function Navbar() {
     if (href.includes("#")) {
       const targetId = href.split("#")[1];
       const elem = document.getElementById(targetId);
+      
+      // Always close the mobile menu when a link is clicked
+      setIsOpen(false);
+
       if (elem) {
         e.preventDefault();
         elem.scrollIntoView({ behavior: "smooth" });
-        setIsOpen(false);
       }
     }
   };

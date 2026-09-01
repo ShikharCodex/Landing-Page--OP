@@ -2,7 +2,7 @@ import { Search, Bookmark, Play, Code, FileText, Settings2 } from "lucide-react"
 
 export default function ProductShowcase() {
   return (
-    <section className="py-24 md:py-32 px-6 bg-secondary/20">
+    <section className="py-24 md:py-32 px-6 bg-secondary/20" id="product">
       <div className="max-w-5xl mx-auto space-y-32">
         
         {/* Personal Library */}

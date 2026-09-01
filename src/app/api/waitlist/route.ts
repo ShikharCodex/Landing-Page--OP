@@ -94,7 +94,7 @@ export async function POST(req: Request) {
 
     } catch (dbError: unknown) {
       // Handle unique constraint violation (duplicate email)
-      if ((dbError as any).code === 'P2002') {
+      if (typeof dbError === 'object' && dbError !== null && 'code' in dbError && (dbError as { code?: string }).code === 'P2002') {
         return NextResponse.json({ success: true, message: "You're already on the OpenPrompt waitlist." });
       }
       throw dbError;

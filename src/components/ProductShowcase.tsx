@@ -1,4 +1,4 @@
-import { Folder, Search, Bookmark, Eye, Heart, Share, Play, Code, FileText, Settings2 } from "lucide-react";
+import { Search, Bookmark, Play, Code, FileText, Settings2 } from "lucide-react";
 
 export default function ProductShowcase() {
   return (
@@ -89,7 +89,10 @@ export default function ProductShowcase() {
               <div className="space-y-2">
                 <h3 className="font-medium text-lg">Next.js API Route Boilerplate</h3>
                 <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" className="w-4 h-4 rounded-full bg-secondary" alt="avatar" /> @alex</span>
+                  <span className="flex items-center gap-1">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" className="w-4 h-4 rounded-full bg-secondary" alt="avatar" /> @alex
+                  </span>
                   <span>·</span>
                   <span>TypeScript</span>
                 </div>

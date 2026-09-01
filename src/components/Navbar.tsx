@@ -11,6 +11,20 @@ export default function Navbar() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    // Only handle internal hash links
+    const href = e.currentTarget.href;
+    if (href.includes("#")) {
+      const targetId = href.split("#")[1];
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        e.preventDefault();
+        elem.scrollIntoView({ behavior: "smooth" });
+        setIsOpen(false);
+      }
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
@@ -19,10 +33,18 @@ export default function Navbar() {
             <Logo />
           </Link>
           <div className="hidden md:flex space-x-6">
-            <Link href="#product" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link 
+              href="#product" 
+              onClick={handleScroll}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
               Product
             </Link>
-            <Link href="#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link 
+              href="#how-it-works" 
+              onClick={handleScroll}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
               How it works
             </Link>
           </div>
@@ -32,6 +54,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link 
             href="#waitlist" 
+            onClick={handleScroll}
             className="text-sm font-medium bg-foreground text-background px-4 py-2 rounded-md hover:bg-foreground/90 transition-colors"
           >
             Join the waitlist
@@ -62,21 +85,21 @@ export default function Navbar() {
             <div className="px-4 py-6 flex flex-col space-y-4">
               <Link 
                 href="#product" 
-                onClick={toggleMenu}
+                onClick={handleScroll}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Product
               </Link>
               <Link 
                 href="#how-it-works" 
-                onClick={toggleMenu}
+                onClick={handleScroll}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 How it works
               </Link>
               <Link 
                 href="#waitlist" 
-                onClick={toggleMenu}
+                onClick={handleScroll}
                 className="text-sm font-medium text-center bg-foreground text-background px-4 py-3 rounded-md hover:bg-foreground/90 transition-colors mt-4"
               >
                 Join the waitlist

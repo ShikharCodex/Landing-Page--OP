@@ -22,6 +22,18 @@ export default function Hero() {
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
   };
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    const href = e.currentTarget.href;
+    if (href.includes("#")) {
+      const targetId = href.split("#")[1];
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        e.preventDefault();
+        elem.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 px-6 overflow-hidden">
       <AsciiBackground />
@@ -47,12 +59,14 @@ export default function Hero() {
         <motion.div variants={item} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
           <Link 
             href="#waitlist"
+            onClick={handleScroll}
             className="w-full sm:w-auto px-6 py-3 bg-foreground text-background font-medium rounded-md hover:bg-foreground/90 transition-colors"
           >
             Join the waitlist
           </Link>
           <Link 
             href="#how-it-works"
+            onClick={handleScroll}
             className="w-full sm:w-auto px-6 py-3 bg-secondary text-secondary-foreground font-medium rounded-md hover:bg-secondary/80 transition-colors"
           >
             Explore the idea

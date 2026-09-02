@@ -1,4 +1,5 @@
 import { Search, Folder, Bookmark, Command, Copy } from "lucide-react";
+import Logo from "./Logo";
 
 export default function HeroPreview() {
   return (
@@ -6,10 +7,10 @@ export default function HeroPreview() {
       {/* Sidebar */}
       <div className="w-full md:w-64 border-b md:border-b-0 md:border-r border-border/40 bg-secondary/30 p-4 flex flex-col gap-6">
         <div className="flex items-center gap-2 px-2 text-foreground font-medium">
-          <Command className="w-4 h-4" />
-          <span>OpenPrompt</span>
+          <Logo showText={false} className="w-6" />
+          <span className="text-lg">OpenPrompt</span>
         </div>
-        
+
         <nav className="flex flex-col gap-1">
           <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
             My Library
@@ -35,9 +36,9 @@ export default function HeroPreview() {
           <h2 className="text-xl font-medium">All Prompts</h2>
           <div className="relative w-full max-w-xs">
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-            <input 
-              type="text" 
-              placeholder="Search prompts..." 
+            <input
+              type="text"
+              placeholder="Search prompts..."
               className="w-full pl-9 pr-4 py-2 bg-background border border-border rounded-md text-sm outline-none focus:ring-1 focus:ring-ring transition-shadow"
             />
           </div>

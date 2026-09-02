@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import VideoSection from "@/components/VideoSection";
 import ProblemSection from "@/components/ProblemSection";
 import CoreFeatures from "@/components/CoreFeatures";
 import ProductShowcase from "@/components/ProductShowcase";
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <VideoSection />
       <ProblemSection />
       <CoreFeatures />
       <ProductShowcase />

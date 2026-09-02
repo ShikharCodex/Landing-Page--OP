@@ -44,7 +44,7 @@ export default function QuoteSection() {
   const words = quote.split(" ");
 
   return (
-    <section ref={container} className="relative h-[600vh] bg-background w-full">
+    <section ref={container} className="relative h-[350vh] md:h-[600vh] bg-background w-full">
       <div className="sticky top-0 flex h-screen w-full items-center justify-center px-4 sm:px-6 md:px-12 overflow-hidden">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium leading-relaxed sm:leading-relaxed md:leading-snug lg:leading-snug tracking-tight text-foreground">

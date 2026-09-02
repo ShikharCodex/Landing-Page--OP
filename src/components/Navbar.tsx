@@ -18,12 +18,16 @@ export default function Navbar() {
       const targetId = href.split("#")[1];
       const elem = document.getElementById(targetId);
       
-      // Always close the mobile menu when a link is clicked
-      setIsOpen(false);
-
       if (elem) {
         e.preventDefault();
-        elem.scrollIntoView({ behavior: "smooth" });
+        // Close the mobile menu when a link is clicked
+        setIsOpen(false);
+        // Delay scroll slightly so the menu closing doesn't interfere with the scroll position
+        setTimeout(() => {
+          elem.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      } else {
+        setIsOpen(false);
       }
     }
   };

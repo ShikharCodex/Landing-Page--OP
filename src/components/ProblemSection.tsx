@@ -1,6 +1,6 @@
 export default function ProblemSection() {
   return (
-    <section className="py-24 md:py-32 px-6 bg-secondary/30" id="product">
+    <section className="py-24 md:py-32 px-6 bg-secondary/30">
       <div className="max-w-3xl mx-auto text-center space-y-12">
         <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground">
           Your best prompts are everywhere.

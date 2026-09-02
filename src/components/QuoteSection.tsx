@@ -18,7 +18,7 @@ const Word = ({ children, progress, range }: WordProps) => {
   return (
     <motion.span
       style={{ opacity }}
-      className="mr-2 md:mr-3 lg:mr-4 mt-2 md:mt-3 lg:mt-4 inline-block text-foreground transition-colors"
+      className="text-foreground transition-colors"
     >
       {children}
     </motion.span>
@@ -45,18 +45,21 @@ export default function QuoteSection() {
 
   return (
     <section ref={container} className="relative h-[600vh] bg-background w-full">
-      <div className="sticky top-0 flex h-screen w-full items-center justify-center px-6 md:px-12 overflow-hidden">
+      <div className="sticky top-0 flex h-screen w-full items-center justify-center px-4 sm:px-6 md:px-12 overflow-hidden">
         <div className="max-w-5xl mx-auto">
-          <p className="flex flex-wrap justify-center text-center text-3xl md:text-5xl lg:text-6xl font-medium leading-tight md:leading-tight lg:leading-tight tracking-tight text-foreground">
+          <p className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium leading-relaxed sm:leading-relaxed md:leading-snug lg:leading-snug tracking-tight text-foreground">
             {words.map((word, i) => {
               // Calculate a staggered overlapping range for each word
               // This makes multiple words fade in smoothly rather than one by one harshly
               const start = (i / words.length) * 0.8;
               const end = start + 0.2;
               return (
-                <Word key={i} progress={smoothProgress} range={[start, end]}>
-                  {word}
-                </Word>
+                <span key={i}>
+                  <Word progress={smoothProgress} range={[start, end]}>
+                    {word}
+                  </Word>
+                  {i < words.length - 1 && " "}
+                </span>
               );
             })}
           </p>
